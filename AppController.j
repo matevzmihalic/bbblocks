@@ -11,29 +11,22 @@
 
 @implementation AppController : CPObject
 {
+    CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
 }
 
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
 {
-    var theWindow = [[CPWindow alloc] initWithContentRect:CGRectMakeZero() styleMask:CPBorderlessBridgeWindowMask],
-        contentView = [theWindow contentView];
+    // This is called when the application is done loading.
+}
 
-    var label = [[CPTextField alloc] initWithFrame:CGRectMakeZero()];
+- (void)awakeFromCib
+{
+    // This is called when the cib is done loading.
+    // You can implement this method on any object instantiated from a Cib.
+    // It's a useful hook for setting up current UI values, and other things.
 
-    [label setStringValue:@"Hello World!"];
-    [label setFont:[CPFont boldSystemFontOfSize:24.0]];
-
-    [label sizeToFit];
-
-    [label setAutoresizingMask:CPViewMinXMargin | CPViewMaxXMargin | CPViewMinYMargin | CPViewMaxYMargin];
-    [label setCenter:[contentView center]];
-
-    [contentView addSubview:label];
-
-    [theWindow orderFront:self];
-
-    // Uncomment the following line to turn on the standard menu bar.
-    //[CPMenu setMenuBarVisible:YES];
+    // In this case, we want the window from Cib to become our full browser window
+    [theWindow setFullPlatformWindow:YES];
 }
 
 @end

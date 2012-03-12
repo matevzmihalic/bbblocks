@@ -30,6 +30,7 @@ app ("bbblocks", function(task)
     task.setResources(new FileList("Resources/**"));
     task.setIndexFilePath("index.html");
     task.setInfoPlistPath("Info.plist");
+    task.setNib2CibFlags("-R Resources/");
 
     if (configuration === "Debug")
         task.setCompilerFlags("-DDEBUG -g");
