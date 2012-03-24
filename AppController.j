@@ -7,11 +7,14 @@
  */
 
 @import <Foundation/CPObject.j>
+@import "CollectionItem.j"
 
 
 @implementation AppController : CPObject
 {
     CPWindow    theWindow; //this "outlet" is connected automatically by the Cib
+    @outlet CPCollectionView cView;
+    @outlet CollectionItem cItem;
 }
 
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
@@ -27,6 +30,16 @@
 
     // In this case, we want the window from Cib to become our full browser window
     [theWindow setFullPlatformWindow:YES];
+    
+    [cView setItemPrototype:cItem];
+    
+    //[photosets setObject:images forKey:aString];
+    
+    [cView setMinItemSize:CGSizeMake(410, 310)];
+    [cView setMaxItemSize:CGSizeMake(410, 310)];
+    
+    [cView setContent:[CPArray arrayWithObjects:@"key1", @"key2", @"John", @"Joe", nil]];
+    [cView setSelectionIndexes:[CPIndexSet indexSetWithIndex:1]];
 }
 
 @end
