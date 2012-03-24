@@ -6,7 +6,5 @@
 	<string>MainMenu.cib</string>
 	<key>CPBundleName</key>
 	<string>bbblocks</string>
-	<key>CPDefaultTheme</key>
-	<string>BBBlocksKit</string>
 </dict>
 </plist>

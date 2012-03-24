@@ -52,6 +52,7 @@
 
 - (void)blendDidFinishLoading:(CPThemeBlend)theBlend
 {
+    /*
     var contentView = [theWindow contentView],
         button = [CPButton buttonWithTitle:@"Hello Theme"];
 
@@ -81,6 +82,7 @@
     [contentView addSubview:aristoButton];
 
     [[CPRunLoop currentRunLoop] performSelectors];
+    */
 }
 
 
